@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS | Exemplo 16</title>
+</head>
+<style>
+@font-face {
+    font-family: Century-Gothic;
+    src: url('fonts/Century\ Gothic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Glitten;
+    src: url('fonts/Glitten-Regular.ttf');
+}
+
+.f-glitten {
+    font-family: Glitten;
+}
+
+/*[RESTYLE TAG]*/
+
+* {
+    margin: 0px; padding: 0px; 
+    box-sizing: border-box;
+    font-family: Century-Gothic;
+}
+
+body {
+    background-color: #AC9D8E;
+}
+
+/*[PÁGINA]*/
+
+.section-age {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%
+}
+
+a {
+    color: #AC9D8E;
+}
+
+/*[FORMS, INPUTS E BOTÕES]*/
+
+.wrap-age-div {
+    background-color: #F1F1F1;
+    padding: 60px 90px;
+    border-radius: 7px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.wrap-title {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+}
+
+.wrap-title > h2 {
+    color: #836853;
+}
+
+.wrap-input {
+    border-bottom: 0.1rem solid #836853;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.wrap-input input[type="number"] {
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 5px;
+    width: 100%;
+}
+
+button {
+    background: none;
+    color: #836853;
+    border: solid 0.1rem #836853;;
+    border-radius: 50px;
+    text-transform: uppercase;
+    padding: 0.25rem 1rem;
+    cursor: pointer;
+}
+
+#msg {
+    text-align: center;
+    color: #836853;
+    padding: 20px 0 0 0;
+}
+</style>
+<body>
+    <!-- Formulário  -->
+    <section class="section-age">
+        <div class="wrap-age-div">
+            <div class="wrap-title">
+                <h2 class="f-glitten">
+                    Exemplo 16
+                </h2>
+        
+                <p>Validação de Idade</p>
+            </div>
+    
+            <div class="wrap-input" name="form">
+                <input id="age" type="number" name="age" placeholder="Idade...">
+                <button onclick="validateForm()">ENVIAR</button>
+            </div>
+
+            <div class="wrap-validator">
+                <p id="msg"></p>
+            </div>
+        </div>
+    </section>
+
+    
+</body>
+<script>
+    function validateForm(){
+        const age = document.getElementById("age").value;
+        let msg = document.getElementById("msg");
+
+        if(age > 130){
+            msg.innerHTML = "O valor da idade digitada é<br>muito alto! Contate nossos<br>administradores para avaliar a<br>veracidade desse dado.<br><br><a href='ex17-js.html'>Ver o exemplo 17 &#8594</a>"
+        } else if(age < 1){
+            msg.innerHTML = "Infelizmente não podemos cadastrar<br>indivíduos com idade menor a 1 ano.<br><br><a href='ex17-js.html'>Ver o exemplo 17 &#8594</a>"
+        } else {
+            msg.innerHTML = "Idade cadastrada!<br><br><a href='ex17-js.html'>Ver o exemplo 17 &#8594</a>"
+        }
+    }
+</script>
+</html>

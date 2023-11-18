@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS | Exemplo 15</title>
+</head>
+<style>
+@font-face {
+    font-family: Century-Gothic;
+    src: url('fonts/Century\ Gothic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Glitten;
+    src: url('fonts/Glitten-Regular.ttf');
+}
+
+.f-glitten {
+    font-family: Glitten;
+}
+
+/*[RESTYLE TAG]*/
+
+* {
+    margin: 0px; padding: 0px; 
+    box-sizing: border-box;
+    font-family: Century-Gothic;
+}
+
+body {
+    background-color: #AC9D8E;
+}
+
+/*[PÁGINA]*/
+
+.section-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%
+}
+
+/*[FORMS, INPUTS E BOTÕES]*/
+
+.wrap-form {
+    background-color: #F1F1F1;
+    padding: 60px 90px;
+    border-radius: 7px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.wrap-title {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+}
+
+.wrap-title > h2 {
+    color: #836853;
+}
+
+.wrap-input {
+    border-bottom: 0.1rem solid #836853;;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.wrap-input input[type="text"] {
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 5px;
+    width: 100%;
+}
+
+button {
+    background: none;
+    color: #836853;
+    border: solid 0.1rem #836853;;
+    border-radius: 50px;
+    text-transform: uppercase;
+    padding: 0.25rem 1rem;
+    cursor: pointer;
+}
+</style>
+<body>
+    <!-- Formulário  -->
+    <section class="section-form">
+        <div class="wrap-form">
+            <div class="wrap-title">
+                <h2 class="f-glitten">
+                    Exemplo 15
+                </h2>
+        
+                <p>Validação de Formulário</p>
+            </div>
+    
+            <form class="wrap-input" name="form" onsubmit="validateForm()" action="cadastro.php" method="POST">
+                <input type="text" name="name" placeholder="Nome...">
+                <button type="submit">ENVIAR</button>
+            </form>
+        </div>
+    </section>
+
+    
+</body>
+<script>
+    function validateForm(){
+        let data = document.forms["form"]["name"].value;
+
+        if(data == ""){
+            alert("Preencha o nome corretamente!")
+            return false; 
+        }
+    }
+</script>
+</html>
