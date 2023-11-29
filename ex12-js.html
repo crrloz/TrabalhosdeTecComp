@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS | Exemplo 14</title>
+</head>
+<style>
+@font-face {
+    font-family: Century-Gothic;
+    src: url('fonts/Century\ Gothic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Glitten;
+    src: url('fonts/Glitten-Regular.ttf');
+}
+
+.f-glitten {
+    font-family: Glitten;
+}
+
+/*[RESTYLE TAG]*/
+
+* {
+    margin: 0px; padding: 0px; 
+    box-sizing: border-box;
+    font-family: Century-Gothic;
+}
+
+body {
+    background-color: #AC9D8E;
+}
+
+a {
+    color: #AC9D8E;
+}
+
+/*[PÁGINA]*/
+
+.section-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%
+}
+
+/*[FORMS, INPUTS E BOTÕES]*/
+
+.wrap-form {
+    background-color: #F1F1F1;
+    padding: 100px 130px;
+    border-radius: 7px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.wrap-title {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+}
+
+.wrap-title > h2 {
+    color: #836853;
+}
+
+.wrap-input {
+    padding: 5px;
+}
+
+.wrap-input label {
+    padding-right: 10px;
+}
+
+button {
+    background: none;
+    color: #836853;
+    border: solid 0.1rem #836853;;
+    border-radius: 50px;
+    text-transform: uppercase;
+    padding: 0.25rem 1rem;
+    cursor: pointer;
+}
+
+#msg {
+    text-align: center;
+    color: #836853;
+    padding: 20px 0 0 0;
+}
+</style>
+<body>
+    <!-- Formulário  -->
+    <section class="section-form">
+        <div class="wrap-form">
+            <div class="wrap-title">
+                <h2 class="f-glitten">
+                    Exemplo 12
+                </h2>
+        
+                <p>Aparecer botão</p>
+            </div>
+    
+            <div class="wrap-input">
+                <label for="checkbox">Adicionar botão</label>
+                <input type="checkbox" name="checkbox" onclick="addButton()">
+                <button id="btn" style="display: none; margin-top: 10px;" onclick="addImage()">ADICIONAR</button>
+            </div>
+
+            <div class="wrap-msg">
+                <p id="msg"></p>
+            </div>
+        </div>
+    </section>
+
+    
+</body>
+<script>
+    function addButton(){
+        let checkbox = document.getElementsByTagName("input")[0];
+        let btn = document.getElementById("btn");
+
+        if(checkbox && checkbox.checked){
+            btn.style.display = "block";
+        } else {
+            btn.style.display = "none";
+        }
+    }
+
+    function addImage(){
+        let wrapForm = document.getElementsByClassName("wrap-form")[0];
+        let div = document.createElement("div");
+        let img = document.createElement("img");
+
+        img.src = "imgs/perfil.png";
+        img.style.maxWidth = "100px";
+        img.style.marginBottom = "10px";
+
+        div.style.textAlign = "center";
+        div.appendChild(img);
+        wrapForm.insertBefore(div, wrapForm.firstChild) // Técnica para a div da imagem ser a primeira dentro da div wrap-input!!
+
+        let msg = document.getElementById("msg");
+
+        msg.innerHTML = "<a href='ex15-js.html'>Ver o exemplo 15 &#8594</a>";
+    }
+</script>
+</html>

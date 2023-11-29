@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS | Exemplo 16</title>
+    <title>JS | Exemplo 13</title>
 </head>
 <style>
 @font-face {
@@ -32,9 +32,13 @@ body {
     background-color: #AC9D8E;
 }
 
+a {
+    color: #AC9D8E;
+}
+
 /*[PÁGINA]*/
 
-.section-age {
+.section-form {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,15 +46,11 @@ body {
     width: 100%
 }
 
-a {
-    color: #AC9D8E;
-}
-
 /*[FORMS, INPUTS E BOTÕES]*/
 
-.wrap-age-div {
+.wrap-form {
     background-color: #F1F1F1;
-    padding: 60px 90px;
+    padding: 100px 130px;
     border-radius: 7px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
@@ -65,20 +65,11 @@ a {
 }
 
 .wrap-input {
-    border-bottom: 0.1rem solid #836853;
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
     padding: 5px;
 }
 
-.wrap-input input[type="number"] {
-    background: none;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    padding: 5px;
-    width: 100%;
+.wrap-input label {
+    padding-right: 10px;
 }
 
 button {
@@ -99,24 +90,22 @@ button {
 </style>
 <body>
     <!-- Formulário  -->
-    <section class="section-signup">
-        <div class="wrap-signup">
+    <section class="section-form">
+        <div class="wrap-form">
             <div class="wrap-title">
                 <h2 class="f-glitten">
-                    Exemplo 17
+                    Exemplo 13
                 </h2>
         
-                <p>Cadastro</p>
+                <p>Mouse over/out</p>
             </div>
     
-            <div class="wrap-input" name="form">
-
-                <input id="phone" type="number" name="phone" placeholder="Celular...">
-                <button onclick="validateForm()">ENVIAR</button>
+            <div class="wrap-texts" onmouseover="text1(this)" onmouseout="text2(this)">
+                Nada demais aqui...
             </div>
 
-            <div class="wrap-database">
-                
+            <div class="wrap-msg">
+                <p id="msg"></p>
             </div>
         </div>
     </section>
@@ -124,17 +113,28 @@ button {
     
 </body>
 <script>
-    function validateForm(){
-        const age = document.getElementById("age").value;
-        let msg = document.getElementById("msg");
+    var count = 1;
+    let msg = document.getElementById("msg");
 
-        if(age > 130){
-            msg.innerHTML = "O valor da idade digitada é<br>muito alto! Contate nossos<br>administradores para avaliar a<br>veracidade desse dado.<br><br><a href='ex17-js.html'>Ver o exemplo 17 &#8594</a>"
-        } else if(age < 1){
-            msg.innerHTML = "Infelizmente não podemos cadastrar<br>indivíduos com idade menor a 1 ano.<br><br><a href='ex17-js.html'>Ver o exemplo 17 &#8594</a>"
-        } else {
-            msg.innerHTML = "Idade cadastrada!<br><br><a href='ex18-js.html'>Ver o exemplo 18 &#8594</a>"
+    function text1(obj){
+        obj.innerHTML = "SOLANGE MELHOR<br>ARTISTA NEO SOUL<br>E WIGH > ASATT";
+        obj.fontSize = "60px";
+
+        count++;
+        if(count > 1){
+            msg.innerHTML = "<a href='ex14-js.html'>Ver o exemplo 14 &#8594</a>";
         }
     }
+
+    function text2(obj){
+        obj.innerHTML = "Nada demais aqui...";
+
+        count++;
+        if(count > 1){
+            msg.innerHTML = "<a href='ex14-js.html'>Ver o exemplo 14 &#8594</a>";
+        }
+    }
+
+    
 </script>
 </html>
