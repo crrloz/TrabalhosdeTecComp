@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS | Exemplo 10</title>
+</head>
+<style>
+@font-face {
+    font-family: Century-Gothic;
+    src: url('fonts/Century\ Gothic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Glitten;
+    src: url('fonts/Glitten-Regular.ttf');
+}
+
+.f-glitten {
+    font-family: Glitten;
+}
+
+/*[RESTYLE TAG]*/
+
+* {
+    margin: 0px; padding: 0px; 
+    box-sizing: border-box;
+    font-family: Century-Gothic;
+}
+
+body {
+    background-color: #AC9D8E;
+}
+
+a {
+    color: #AC9D8E;
+}
+
+/*[PÁGINA]*/
+
+.section-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%
+}
+
+/*[FORMS, INPUTS E BOTÕES]*/
+
+.wrap-form {
+    background-color: #F1F1F1;
+    padding: 100px 130px;
+    border-radius: 7px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.wrap-title {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+}
+
+.wrap-title > h2 {
+    color: #836853;
+}
+
+.wrap-input {
+    padding: 5px;
+}
+
+.wrap-input input[type="number"] {
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    border-bottom: solid 0.1rem #836853;
+}
+
+button {
+    background: none;
+    color: #836853;
+    border: solid 0.1rem #836853;
+    border-radius: 50px;
+    text-transform: uppercase;
+    padding: 0.25rem 1rem;
+    cursor: pointer;
+}
+
+.btn-layout {
+    background: #836853;
+    color: white;
+    border: solid 0.1rem #836853;
+    border-radius: 50px;
+    text-transform: uppercase;
+    padding: 0.25rem 1rem;
+    cursor: pointer;
+}
+
+#msg {
+    text-align: center;
+    color: #836853;
+    padding: 20px 0 0 0;
+}
+</style>
+<body>
+    <!-- Formulário  -->
+    <section class="section-form">
+        <div class="wrap-form">
+            <div class="wrap-title">
+                <h2 class="f-glitten">
+                    Exemplo 10
+                </h2>
+        
+                <p class="description">Cálculo de média</p>
+            </div>
+    
+            <div class="wrap-input">
+                <input id="first" type="number" name="first" placeholder="1ª nota...">
+                <input id="second" type="number" name="second" placeholder="2ª nota...">
+
+                <button onclick="calculate()">ENVIAR</button>
+                <button onclick="clear()">LIMPAR</button>
+                <button onclick="changeLayout()" class="btn-layout">MUDAR LAYOUT</button>
+            </div>
+
+            <div class="wrap-result">
+                <p id="result"></p>
+            </div>
+
+            <div class="wrap-msg">
+                <p id="msg"></p>
+            </div>
+        </div>
+    </section>
+
+    
+</body>
+<script>
+    var layout = 0;
+
+    function clear(){
+        document.getElementById("first").value = "";
+        document.getElementById("second").value = "";
+        document.getElementsById("result").innerText = "";
+    }
+
+    function changeLayout(){
+        const body = document.getElementsByTagName("body")[0].style;
+        const myDiv = document.getElementsByTagName("div")[0].style;
+        const descri = document.getElementsByClassName("description")[0].style;
+        const firstButton = document.getElementsByTagName("button")[0].style;
+        const secondButton = document.getElementsByTagName("button")[1].style;
+        const thirdButton = document.getElementsByTagName("button")[2].style;
+
+        if(layout == 0) {
+            body.backgroundColor = "black";
+            myDiv.backgroundColor = "#AC9D8E";
+
+            descri.color = "white";
+
+            firstButton.borderColor = "white";
+            firstButton.color = "white";
+            secondButton.borderColor = "white";
+            secondButton.color = "white";
+
+            document.styleSheets[0].insertRule('.wrap-input input[type="number"]::placeholder { color: white; }', 0);
+            
+            layout = 1;
+            
+        } else {
+            body.backgroundColor = "#AC9D8E";
+            myDiv.backgroundColor = "#F1F1F1";
+
+            descri.color = "black";
+
+            firstButton.backgroundColor = "none";
+            secondButton.backgroundColor = "none";
+            thirdButton.backgroundColor = "#836853";
+
+            firstButton.borderColor = "#836853";
+            firstButton.color = "#836853";
+            secondButton.borderColor = "#836853";
+            secondButton.color = "#836853";
+            thirdButton.color = "#F1F1F1";
+
+            document.styleSheets[0].insertRule('.wrap-input input[type="number"]::placeholder { color: grey; }', 0);
+
+            layout = 0;
+        }
+    }
+
+    function calculate(){
+        var first = parseFloat(document.getElementById("first").value);
+        var second = parseFloat(document.getElementById("second").value);
+
+        let media = (first+second)/2;
+
+        var result = document.getElementById("result");
+
+        result.innerHTML = "A média da soma dos valores digitados é " +media;  
+        msg.innerHTML = "<a href='ex11-js.html'>Ver o exemplo 11 &#8594</a>";
+    }
+</script>
+</html>

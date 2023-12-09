@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS | Exemplo 14</title>
+    <title>JS | Exemplo 11</title>
 </head>
 <style>
 @font-face {
@@ -55,6 +55,10 @@ a {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
+.wrap-img {
+    text-align: center;
+}
+
 .wrap-title {
     margin: 0 0 10px 0;
     font-size: 20px;
@@ -66,10 +70,6 @@ a {
 
 .wrap-input {
     padding: 5px;
-}
-
-.wrap-input label {
-    padding-right: 10px;
 }
 
 button {
@@ -92,18 +92,20 @@ button {
     <!-- Formulário  -->
     <section class="section-form">
         <div class="wrap-form">
+            <div class="wrap-img">
+                <img src="imgs/spiral.jpg" id="img">
+            </div>
+
             <div class="wrap-title">
                 <h2 class="f-glitten">
-                    Exemplo 14
+                    Exemplo 11
                 </h2>
         
-                <p>Aparecer botão</p>
+                <p>Mudar imagem</p>
             </div>
     
             <div class="wrap-input">
-                <label for="checkbox">Adicionar botão</label>
-                <input type="checkbox" name="checkbox" onclick="addButton()">
-                <button id="btn" style="display: none; margin-top: 10px;" onclick="addImage()">ADICIONAR</button>
+                <button id="btn" onclick="changeImage()">MUDAR</button>
             </div>
 
             <div class="wrap-msg">
@@ -115,33 +117,25 @@ button {
     
 </body>
 <script>
-    function addButton(){
-        let checkbox = document.getElementsByTagName("input")[0];
-        let btn = document.getElementById("btn");
+    let times = 1;
+    let wrapForm = document.getElementsByClassName("wrap-form")[0];
+    let img = document.getElementById("img");
+    
+    img.style.maxWidth = "100px";
+    img.style.marginBottom = "10px";
 
-        if(checkbox && checkbox.checked){
-            btn.style.display = "block";
+    function changeImage(){
+        if(times%2){
+            img.src = "imgs/perfil.png";
         } else {
-            btn.style.display = "none";
+            img.src = "imgs/spiral.jpg";
         }
-    }
-
-    function addImage(){
-        let wrapForm = document.getElementsByClassName("wrap-form")[0];
-        let div = document.createElement("div");
-        let img = document.createElement("img");
-
-        img.src = "imgs/perfil.png";
-        img.style.maxWidth = "100px";
-        img.style.marginBottom = "10px";
-
-        div.style.textAlign = "center";
-        div.appendChild(img);
-        wrapForm.insertBefore(div, wrapForm.firstChild);
 
         let msg = document.getElementById("msg");
 
-        msg.innerHTML = "<a href='ex15-js.html'>Ver o exemplo 15 &#8594</a>";
+        msg.innerHTML = "<a href='ex12-js.html'>Ver o exemplo 12 &#8594</a>";
+
+        times++;
     }
 </script>
 </html>
