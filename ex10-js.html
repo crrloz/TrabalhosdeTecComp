@@ -142,15 +142,16 @@ button {
     var layout = 0;
 
     function clear(){
-        document.getElementById("first").value = "";
-        document.getElementById("second").value = "";
-        document.getElementsById("result").innerText = "";
+        document.getElementsByTagName("input")[0].value = "";
+        document.getElementsByTagName("input")[1].value = "";
+        document.getElementsByTagName("p")[0].innerText = "";
     }
 
     function changeLayout(){
         const body = document.getElementsByTagName("body")[0].style;
         const myDiv = document.getElementsByTagName("div")[0].style;
         const descri = document.getElementsByClassName("description")[0].style;
+        const msg = document.getElementsByTagName("a")[0].style;
         const firstButton = document.getElementsByTagName("button")[0].style;
         const secondButton = document.getElementsByTagName("button")[1].style;
         const thirdButton = document.getElementsByTagName("button")[2].style;
@@ -165,6 +166,8 @@ button {
             firstButton.color = "white";
             secondButton.borderColor = "white";
             secondButton.color = "white";
+
+            msg.color = "white";
 
             document.styleSheets[0].insertRule('.wrap-input input[type="number"]::placeholder { color: white; }', 0);
             
@@ -186,6 +189,8 @@ button {
             secondButton.color = "#836853";
             thirdButton.color = "#F1F1F1";
 
+            msg.color = "#AC9D8E";
+
             document.styleSheets[0].insertRule('.wrap-input input[type="number"]::placeholder { color: grey; }', 0);
 
             layout = 0;
@@ -193,8 +198,17 @@ button {
     }
 
     function calculate(){
-        var first = parseFloat(document.getElementById("first").value);
-        var second = parseFloat(document.getElementById("second").value);
+        var first = 0;
+
+        if(document.getElementById("first").value !== ""){
+            first = parseFloat(document.getElementById("first").value);
+        }
+
+        var second = 0;
+        
+        if(document.getElementById("second").value !== ""){
+            var second = parseFloat(document.getElementById("second").value);
+        }
 
         let media = (first+second)/2;
 

@@ -32,6 +32,10 @@ body {
     background-color: #AC9D8E;
 }
 
+a {
+    color: #AC9D8E;
+}
+
 /*[PÁGINA]*/
 
 .section-form {
@@ -61,7 +65,7 @@ body {
 }
 
 .wrap-input {
-    border-bottom: 0.1rem solid #836853;;
+    border-bottom: 0.1rem solid #836853;
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
@@ -80,11 +84,17 @@ body {
 button {
     background: none;
     color: #836853;
-    border: solid 0.1rem #836853;;
+    border: solid 0.1rem #836853;
     border-radius: 50px;
     text-transform: uppercase;
     padding: 0.25rem 1rem;
     cursor: pointer;
+}
+
+#msg {
+    text-align: center;
+    color: #836853;
+    padding: 20px 0 0 0;
 }
 </style>
 <body>
@@ -103,6 +113,10 @@ button {
                 <input type="text" name="name" placeholder="Nome...">
                 <button type="submit">ENVIAR</button>
             </form>
+
+            <div class="wrap-validator">
+                <p id="msg">Ou pule diretamente para o <a href="ex16-js.html">exercício 16 &#8594</a></p>
+            </div>
         </div>
     </section>
 

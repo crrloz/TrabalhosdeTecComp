@@ -48,6 +48,22 @@ a {
 
 /*[FORMS, INPUTS E BOTÕES]*/
 
+
+.section-signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%
+}
+
+.wrap-signup {
+    background-color: #F1F1F1;
+    padding: 100px 130px;
+    border-radius: 7px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
 .wrap-age-div {
     background-color: #F1F1F1;
     padding: 60px 90px;
@@ -72,7 +88,7 @@ a {
     padding: 5px;
 }
 
-.wrap-input input[type="number"] {
+.wrap-input input[type="number"], .wrap-input input[type="text"] {
     background: none;
     border: none;
     outline: none;
@@ -84,7 +100,7 @@ a {
 button {
     background: none;
     color: #836853;
-    border: solid 0.1rem #836853;;
+    border: solid 0.1rem #836853;
     border-radius: 50px;
     text-transform: uppercase;
     padding: 0.25rem 1rem;
@@ -109,9 +125,10 @@ button {
                 <p>Cadastro</p>
             </div>
     
-            <div class="wrap-input" name="form">
+            <div class="wrap-input">
+                <input id="name" type="text" name="name" placeholder="Nome..."><br>
                 <input id="phone" type="number" name="phone" placeholder="Celular...">
-                <button onclick="validateForm()">ENVIAR</button>
+                <button onclick="cadastrarUsu()">ENVIAR</button>
             </div>
 
             <div class="wrap-database">
@@ -123,17 +140,19 @@ button {
     
 </body>
 <script>
-    function validateForm(){
-        const age = document.getElementById("age").value;
-        let msg = document.getElementById("msg");
+    function cadastrarUsu(){
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const database = document.getElementsByClassName('wrap-database')[0];
+        const h4 = document.createElement("h4");
 
-        if(age > 130){
-            msg.innerHTML = "O valor da idade digitada é<br>muito alto! Contate nossos<br>administradores para avaliar a<br>veracidade desse dado.<br><br><a href='ex17-js.html'>Ver o exemplo 17 &#8594</a>"
-        } else if(age < 1){
-            msg.innerHTML = "Infelizmente não podemos cadastrar<br>indivíduos com idade menor a 1 ano.<br><br><a href='ex17-js.html'>Ver o exemplo 17 &#8594</a>"
-        } else {
-            msg.innerHTML = "Idade cadastrada!<br><br><a href='ex18-js.html'>Ver o exemplo 18 &#8594</a>"
-        }
+        h4.style.margin = "10px 0";
+        h4.innerHTML = "| NOME | "+ name + " | TELEFONE | " + phone;
+
+        database.appendChild(h4);
+
+        document.getElementById('name').value = "";
+        document.getElementById('phone').value = "";
     }
 </script>
 </html>
